@@ -1,0 +1,5 @@
+<RCC>
+  <qresource prefix="plugins/HeightmapExport">
+    <file>HeightmapExport.png</file>
+  </qresource>
+</RCC>
