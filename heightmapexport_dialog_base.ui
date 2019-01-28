@@ -23,8 +23,11 @@
    <string>Heightmap Export</string>
   </property>
   <property name="windowIcon">
-   <iconset resource="resources.qrc">
+   <iconset>
     <normaloff>:/plugins/HeightmapExport/HeightmapExport.png</normaloff>:/plugins/HeightmapExport/HeightmapExport.png</iconset>
+  </property>
+  <property name="whatsThis">
+   <string/>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
@@ -54,7 +57,11 @@
        </property>
        <layout class="QVBoxLayout" name="verticalLayout_2">
         <item>
-         <widget class="QgsMapLayerComboBox" name="LayerComboBox"/>
+         <widget class="QgsMapLayerComboBox" name="LayerComboBox">
+          <property name="whatsThis">
+           <string>Choose a raster layer.</string>
+          </property>
+         </widget>
         </item>
        </layout>
       </widget>
@@ -80,6 +87,12 @@
          <weight>50</weight>
          <bold>false</bold>
         </font>
+       </property>
+       <property name="toolTip">
+        <string>Calculated dimensions of the selected layer.</string>
+       </property>
+       <property name="whatsThis">
+        <string/>
        </property>
        <property name="title">
         <string>Map Area</string>
@@ -127,6 +140,12 @@
                <bold>false</bold>
               </font>
              </property>
+             <property name="toolTip">
+              <string>North/south span across the middle.</string>
+             </property>
+             <property name="whatsThis">
+              <string/>
+             </property>
              <property name="text">
               <string>Height (m):</string>
              </property>
@@ -149,6 +168,15 @@
                <bold>false</bold>
               </font>
              </property>
+             <property name="toolTip">
+              <string>North/south span across the middle.</string>
+             </property>
+             <property name="statusTip">
+              <string/>
+             </property>
+             <property name="whatsThis">
+              <string/>
+             </property>
              <property name="text">
               <string>0</string>
              </property>
@@ -162,6 +190,12 @@
                <bold>false</bold>
               </font>
              </property>
+             <property name="toolTip">
+              <string>East/west span across the middle.</string>
+             </property>
+             <property name="whatsThis">
+              <string/>
+             </property>
              <property name="text">
               <string>Width (m):</string>
              </property>
@@ -174,6 +208,12 @@
                <weight>50</weight>
                <bold>false</bold>
               </font>
+             </property>
+             <property name="toolTip">
+              <string>East/west span across the middle.</string>
+             </property>
+             <property name="whatsThis">
+              <string/>
              </property>
              <property name="text">
               <string>0</string>
@@ -204,6 +244,12 @@
                <bold>false</bold>
               </font>
              </property>
+             <property name="toolTip">
+              <string>Highest elevation in the data.</string>
+             </property>
+             <property name="whatsThis">
+              <string/>
+             </property>
              <property name="text">
               <string>Highest (m):</string>
              </property>
@@ -226,6 +272,12 @@
                <bold>false</bold>
               </font>
              </property>
+             <property name="toolTip">
+              <string>Highest elevation in the data.</string>
+             </property>
+             <property name="whatsThis">
+              <string/>
+             </property>
              <property name="text">
               <string>0</string>
              </property>
@@ -244,6 +296,12 @@
                <weight>50</weight>
                <bold>false</bold>
               </font>
+             </property>
+             <property name="toolTip">
+              <string>Lowest elevation in the data.</string>
+             </property>
+             <property name="whatsThis">
+              <string/>
              </property>
              <property name="text">
               <string>Lowest (m):</string>
@@ -272,6 +330,12 @@
                <weight>50</weight>
                <bold>false</bold>
               </font>
+             </property>
+             <property name="toolTip">
+              <string>Lowest elevation in the data.</string>
+             </property>
+             <property name="whatsThis">
+              <string/>
              </property>
              <property name="text">
               <string>0</string>
@@ -306,6 +370,12 @@
          <bold>false</bold>
         </font>
        </property>
+       <property name="toolTip">
+        <string>Desired dimensions of the final model.</string>
+       </property>
+       <property name="whatsThis">
+        <string/>
+       </property>
        <property name="title">
         <string>Model Dimensions</string>
        </property>
@@ -330,33 +400,72 @@
          </property>
          <item row="0" column="0">
           <widget class="QLabel" name="lblModelHeight">
+           <property name="toolTip">
+            <string>Model size north/south.</string>
+           </property>
+           <property name="whatsThis">
+            <string/>
+           </property>
            <property name="text">
             <string>Height (mm):</string>
            </property>
           </widget>
          </item>
          <item row="0" column="1">
-          <widget class="QLineEdit" name="ModelHeight"/>
+          <widget class="QLineEdit" name="ModelHeight">
+           <property name="toolTip">
+            <string>Model size north/south.</string>
+           </property>
+           <property name="whatsThis">
+            <string>Model size north/south.</string>
+           </property>
+          </widget>
          </item>
          <item row="1" column="0">
           <widget class="QLabel" name="lblModelWidth">
+           <property name="toolTip">
+            <string>Model size east/west.</string>
+           </property>
+           <property name="whatsThis">
+            <string/>
+           </property>
            <property name="text">
             <string>Width (mm):</string>
            </property>
           </widget>
          </item>
          <item row="1" column="1">
-          <widget class="QLineEdit" name="ModelWidth"/>
+          <widget class="QLineEdit" name="ModelWidth">
+           <property name="toolTip">
+            <string>Model size east/west.</string>
+           </property>
+           <property name="whatsThis">
+            <string>Model size east/west.</string>
+           </property>
+          </widget>
          </item>
          <item row="2" column="0">
           <widget class="QLabel" name="lblModelDepth">
+           <property name="toolTip">
+            <string>Model relief depth, unscaled.</string>
+           </property>
+           <property name="whatsThis">
+            <string/>
+           </property>
            <property name="text">
             <string>Depth (mm):</string>
            </property>
           </widget>
          </item>
          <item row="2" column="1">
-          <widget class="QLineEdit" name="ModelDepth"/>
+          <widget class="QLineEdit" name="ModelDepth">
+           <property name="toolTip">
+            <string>Model relief depth, unscaled.</string>
+           </property>
+           <property name="whatsThis">
+            <string>Model relief depth, unscaled.</string>
+           </property>
+          </widget>
          </item>
          <item row="3" column="0">
           <spacer name="verticalSpacer">
@@ -376,26 +485,58 @@
          </item>
          <item row="4" column="0">
           <widget class="QLabel" name="lblScaleDepth">
+           <property name="toolTip">
+            <string>Model relief depth, adjusted.</string>
+           </property>
+           <property name="whatsThis">
+            <string/>
+           </property>
            <property name="text">
             <string>Scaled Depth (mm):</string>
            </property>
           </widget>
          </item>
          <item row="4" column="1">
-          <widget class="QLineEdit" name="ScaleDepth"/>
+          <widget class="QLineEdit" name="ScaleDepth">
+           <property name="toolTip">
+            <string>Model relief depth, adjusted.</string>
+           </property>
+           <property name="whatsThis">
+            <string>Model relief depth, adjusted.</string>
+           </property>
+          </widget>
          </item>
          <item row="5" column="0">
           <widget class="QLabel" name="lblScaleFactor">
+           <property name="toolTip">
+            <string>Scale factor to compress/exaggerate model depth.</string>
+           </property>
+           <property name="whatsThis">
+            <string/>
+           </property>
            <property name="text">
             <string>Scale Factor (1:?):</string>
            </property>
           </widget>
          </item>
          <item row="5" column="1">
-          <widget class="QLineEdit" name="ScaleFactor"/>
+          <widget class="QLineEdit" name="ScaleFactor">
+           <property name="toolTip">
+            <string>Scale factor to compress/exaggerate model depth.</string>
+           </property>
+           <property name="whatsThis">
+            <string>Scale factor to compress/exaggerate model depth.</string>
+           </property>
+          </widget>
          </item>
          <item row="7" column="0">
           <widget class="QLabel" name="lblHorizontalScale">
+           <property name="toolTip">
+            <string>Overall model scale for height/width.</string>
+           </property>
+           <property name="whatsThis">
+            <string/>
+           </property>
            <property name="text">
             <string>Horizontal Scale:</string>
            </property>
@@ -406,6 +547,12 @@
          </item>
          <item row="7" column="1">
           <widget class="QLabel" name="HorizontalScale">
+           <property name="toolTip">
+            <string>Overall model scale for height/width.</string>
+           </property>
+           <property name="whatsThis">
+            <string/>
+           </property>
            <property name="text">
             <string>0</string>
            </property>
@@ -413,6 +560,12 @@
          </item>
          <item row="8" column="0">
           <widget class="QLabel" name="lblVerticalScale">
+           <property name="toolTip">
+            <string>Overall model scale for adjusted depth.</string>
+           </property>
+           <property name="whatsThis">
+            <string/>
+           </property>
            <property name="text">
             <string>Vertical Scale:</string>
            </property>
@@ -423,6 +576,12 @@
          </item>
          <item row="8" column="1">
           <widget class="QLabel" name="VerticalScale">
+           <property name="toolTip">
+            <string>Overall model scale for adjusted depth.</string>
+           </property>
+           <property name="whatsThis">
+            <string/>
+           </property>
            <property name="text">
             <string>0</string>
            </property>
@@ -465,6 +624,12 @@
          <pointsize>10</pointsize>
         </font>
        </property>
+       <property name="toolTip">
+        <string>Heightmap image output size.</string>
+       </property>
+       <property name="whatsThis">
+        <string/>
+       </property>
        <property name="title">
         <string>Image Dimensions</string>
        </property>
@@ -483,6 +648,12 @@
          </property>
          <item row="0" column="0">
           <widget class="QLabel" name="lblImageHeight">
+           <property name="toolTip">
+            <string>Heightmap height north/south in pixels.</string>
+           </property>
+           <property name="whatsThis">
+            <string/>
+           </property>
            <property name="text">
             <string>Image Height:</string>
            </property>
@@ -492,10 +663,23 @@
           </widget>
          </item>
          <item row="0" column="1">
-          <widget class="QLineEdit" name="ImageHeight"/>
+          <widget class="QLineEdit" name="ImageHeight">
+           <property name="toolTip">
+            <string>Heightmap height north/south in pixels.</string>
+           </property>
+           <property name="whatsThis">
+            <string>Heightmap height north/south in pixels.</string>
+           </property>
+          </widget>
          </item>
          <item row="1" column="0">
           <widget class="QLabel" name="lblImageWidth">
+           <property name="toolTip">
+            <string>Heightmap width east/west in pixels.</string>
+           </property>
+           <property name="whatsThis">
+            <string/>
+           </property>
            <property name="text">
             <string>Image Width:</string>
            </property>
@@ -505,10 +689,23 @@
           </widget>
          </item>
          <item row="1" column="1">
-          <widget class="QLineEdit" name="ImageWidth"/>
+          <widget class="QLineEdit" name="ImageWidth">
+           <property name="toolTip">
+            <string>Heightmap width east/west in pixels.</string>
+           </property>
+           <property name="whatsThis">
+            <string>Heightmap width east/west in pixels.</string>
+           </property>
+          </widget>
          </item>
          <item row="2" column="0">
           <widget class="QLabel" name="lblResolution">
+           <property name="toolTip">
+            <string>Physical resolution in finished model.</string>
+           </property>
+           <property name="whatsThis">
+            <string/>
+           </property>
            <property name="text">
             <string>Resolution (mm/pixel):</string>
            </property>
@@ -518,7 +715,14 @@
           </widget>
          </item>
          <item row="2" column="1">
-          <widget class="QLineEdit" name="Resolution"/>
+          <widget class="QLineEdit" name="Resolution">
+           <property name="toolTip">
+            <string>Physical resolution of the finished model.</string>
+           </property>
+           <property name="whatsThis">
+            <string>Physical resolution of the finished model.</string>
+           </property>
+          </widget>
          </item>
         </layout>
        </widget>
@@ -546,6 +750,12 @@
            <height>25</height>
           </size>
          </property>
+         <property name="toolTip">
+          <string>Export the heightmap image.</string>
+         </property>
+         <property name="whatsThis">
+          <string>Export the heightmap image.</string>
+         </property>
          <property name="text">
           <string>Export Heightmap</string>
          </property>
@@ -564,6 +774,12 @@
            <width>100</width>
            <height>25</height>
           </size>
+         </property>
+         <property name="toolTip">
+          <string>Exit the Heightmap Export plugin.</string>
+         </property>
+         <property name="whatsThis">
+          <string>Exit the Heightmap Export plugin.</string>
          </property>
          <property name="text">
           <string>Cancel</string>
@@ -586,5 +802,6 @@
  <tabstops>
   <tabstop>LayerComboBox</tabstop>
  </tabstops>
+ <resources/>
  <connections/>
 </ui>
