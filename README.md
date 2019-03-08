@@ -20,10 +20,4 @@ Heightmap Export was created to make it simple and straightforward to take a ras
     * Or set your desired physical resolution (model mm/image pixel), and the height and width will be calculated.
 7. Export your heightmap.
     * You will be asked where to save your 16-bit PNG.
-
-## Versions
-This plugin has two branches:
-* **HeightmapExport_2:** QGIS 2.18 compatible.
-* **HeightmapExport_3:** QGIS 3 compatible.
-
-Both branches are updated in parallel.  The second part of the version number is the branch, i.e. 0.2.0 and 0.3.0 are the same plugin version, targeted to QGIS 2 and QGIS 3, respectively.
+    
