@@ -17,8 +17,16 @@ from __future__ import absolute_import
 from builtins import object
 from qgis.PyQt.QtWidgets import QAction
 from qgis.PyQt.QtGui import QIcon
-from . import resources_rc
 from .heightmapexport_dialog import HeightmapExportDialog
+try:
+  # If this imports, we're in QGIS 2.
+  # It was renamed 'Qgis' in QGIS 3.
+  from qgis.core import QGis
+  # QGIS 2 imports.
+  from . import resources_rc_2
+except ImportError:
+  # QGIS 3 imports.
+  from . import resources_rc_3
 
 class HeightmapExport(object):
     """Implement a QGIS Plugin."""

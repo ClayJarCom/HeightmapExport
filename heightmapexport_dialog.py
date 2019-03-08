@@ -33,6 +33,7 @@ try:
   from qgis.core import (QgsPoint, QgsProject,QgsRectangle,
                          QgsGeometry, QgsCoordinateTransform,
                          QgsCoordinateReferenceSystem)
+  from .heightmapexport_dialog_base_2 import Ui_HeightmapExportDialog
 except ImportError:
   # QGIS 3 imports.
   from qgis.PyQt import QtCore, QtGui, QtWidgets
@@ -43,9 +44,8 @@ except ImportError:
   from qgis.core import (QgsPointXY, QgsRectangle, QgsProject,
                          QgsGeometry, QgsCoordinateTransform,
                          QgsCoordinateReferenceSystem, QgsMapLayerProxyModel)
+  from .heightmapexport_dialog_base_3 import Ui_HeightmapExportDialog
 
-
-from .heightmapexport_dialog_base import Ui_HeightmapExportDialog
 from .PathTracer import PathTracer,PathTracerGUI
 
 

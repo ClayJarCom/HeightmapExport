@@ -1,6 +1,7 @@
 [general]
 name=Heightmap Export
 qgisMinimumVersion=2.0
+qgisMaximumVersion=3.99
 description=Easily create 16-bit PNG heightmaps from DEM data.
 about=Heightmap Export was created to make it easy to take USGS DEM data or 
     similar raster layers, calculate the dimensions for scale terrain relief 
