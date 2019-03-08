@@ -20,6 +20,7 @@ try:
                              QCursor, QDoubleValidator, QIntValidator,
                              QMessageBox)
     from PyQt4.QtCore import Qt
+    from .PathTracerGUI_UI_2 import Ui_PathTracerGUI_UI
 except ImportError:
     #QGIS 3 imports.
     from qgis.PyQt.QtWidgets import (QDialog, QFileDialog, 
@@ -27,8 +28,8 @@ except ImportError:
     from qgis.PyQt.QtGui import (QColor, QCursor, QDoubleValidator,
                                  QIntValidator)
     from qgis.PyQt.QtCore import Qt
+    from .PathTracerGUI_UI_3 import Ui_PathTracerGUI_UI
 
-from .PathTracerGUI_UI import Ui_PathTracerGUI_UI
 from ..main.path_tracer import PathTracer
 
 class PathTracerGUI(QDialog, Ui_PathTracerGUI_UI):
