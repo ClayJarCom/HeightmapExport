@@ -403,9 +403,15 @@ class PathTracer():
             else:
              implied = implied.lower()
              if x_piece is not None:
-                 start_x += particles[piece + x_piece]
+                 if start_x is None:
+                   start_x = particles[piece + x_piece]
+                 else:
+                   start_x += particles[piece + x_piece]
              if y_piece is not None:
-                 start_y += particles[piece + y_piece]
+                 if start_y is None:
+                   start_y = particles[piece + y_piece]
+                 else:
+                   start_y += particles[piece + y_piece]
             piece += next_piece
         return (start_x,start_y)
 
@@ -436,11 +442,12 @@ class PathTracer():
                 subpaths = m.split(path.get('d'))
                 # Anything before the first move command is not allowed
                 # and is therefore discarded, so we start at 1.
-                start_x = 0
-                start_y = 0
+                start_x = None
+                start_y = None
                 for i in range(1,len(subpaths),2):
                     try:
-                        if subpaths[i] == 'M':
+                        if ((subpaths[i] == 'M') or
+                            ((subpaths[i] == 'm') and (i == 1))):
                             path_data = \
                                 '{}{}'.format(subpaths[i],subpaths[i+1])
                         else:
@@ -454,7 +461,7 @@ class PathTracer():
                                       'path_data': path_data}]
                     start_x, start_y = self.far_end(path_data,start_x,start_y)
         return parsed_paths
-
+            
     def load_svg(self,filename):
         """ Load an SVG file. """
         try:
@@ -714,7 +721,7 @@ class PathTracer():
 
     def gcodify(self,pixels,x_width,z_depth,zero_x,zero_y,safe_z,
                 feed_plunge,feed_carve,spindle_speed,
-                offset_x,offset_y,offset_z,laser_mode):
+                offset_x,offset_y,offset_z,laser_mode,rescale=False):
         """ Turn a path's pixels into a G-code string.
 
         pixels: list of pixels walked by the path
@@ -725,8 +732,12 @@ class PathTracer():
         if len(pixels) == 0:
             return ('',None,None,None,None,None,None)
         mult = x_width/self.cols
-        zmin = 0
-        zmax = 2**self.meta['bitdepth'] - 1
+        if rescale:
+          zmin = self.min_z
+          zmax = self.max_z
+        else:
+          zmin = 0
+          zmax = 65535
         zmult = z_depth/(zmax - zmin)
         x0 = zero_x*x_width
         y0 = zero_x*x_width/self.cols*self.rows
@@ -856,7 +867,8 @@ class PathTracer():
             gc,minx,maxx,miny,maxy,minz,maxz = \
                 self.gcodify(px,x_width,z_depth,zero_x,zero_y,safe_z,
                              feed_plunge,feed_carve,spindle_speed,
-                             offset_x,offset_y,offset_z,laser_mode)
+                             offset_x,offset_y,offset_z,laser_mode,
+                             rescale_heightmap)
             gcode += gc
             min_x = minx if ((min_x is None) or (minx < min_x)) else min_x
             max_x = maxx if ((max_x is None) or (maxx > max_x)) else max_x
